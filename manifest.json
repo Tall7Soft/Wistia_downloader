@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Wistia Video Downloader Plus",
+  "description": "Download Wistia videos anywhere in 1 click. Download captions when available. Choose the resolution you need, from 240p to 8k.",
+  "version": "1.0.12",
+  "permissions": ["tabs", "downloads", "storage"],
+  "host_permissions": ["<all_urls>"],
+  "icons": {
+    "16": "image/icon.png",
+    "48": "image/icon.png",
+    "128": "image/icon.png"
+  },
+  "action": {
+    "default_title": "Wistia Video Downloader Plus",
+    "default_popup": "popup.html",
+    "default_icon": "image/icon.png"
+  },
+  "background": {
+    "service_worker": "js/background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["js/limitationService.js", "libs/jquery-3.1.1.min.js", "js/content.js"],
+      "run_at": "document_end",
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["*"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

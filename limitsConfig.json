@@ -1,0 +1,7 @@
+{
+    "isDownloadLimitEnabled": true,
+    "baseDownloadLimit": 30,
+    "sharingBonus": 30,
+    "limitResetPeriodDays": 7,
+    "isAllowedDownloadsAfterBonus": true
+}

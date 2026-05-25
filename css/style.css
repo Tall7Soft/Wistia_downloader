@@ -1,0 +1,204 @@
+#download-ul li#download-list:nth-child(1) {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#download-ul li#download-list:nth-last-child(1) {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#download-ul li#download-list:hover,
+#download-ul li#download-list.active {
+    background: #e4e4e4;
+    color: #000 !important;
+}
+
+.animName {
+    animation: animName 2s linear infinite;
+}
+
+@keyframes animName {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.toast {
+    visibility: hidden;
+    min-width: 250px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.5s, visibility 0.5s;
+}
+
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+ul li:before {
+    display: none !important;
+}
+
+.ul-active li {
+    pointer-events: none !important;
+}
+
+
+/* tostaer message */
+
+.toast-container {
+    position: fixed;
+    top: 25px;
+    right: 30px;
+    z-index: 9999;
+}
+
+.toast {
+    position: relative;
+    width: 355px;
+    border-radius: 12px;
+    background: #fff;
+    padding: 17px 32px 17px 22px;
+    box-shadow: 0 6px 20px -5px rgba(0, 0, 0, 0.1);
+    overflow-x: hidden;
+    transform: translateX(calc(100% + 30px));
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+}
+
+.toast.active {
+    transform: translateX(12%);
+    opacity: 1;
+    visibility: visible;
+}
+
+.toast .toast-content {
+    display: flex;
+    align-items: center;
+}
+
+.toast-content .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    min-width: 35px;
+    border-radius: 100%;
+    background: rgb(25 135 84);
+}
+
+.toast-content .icon:before {
+    content: '';
+    display: inline-block;
+    transform: rotate(45deg);
+    height: 13px;
+    width: 7px;
+    border-bottom: 3px solid #fff;
+    border-right: 3px solid #fff;
+    top: -1px;
+    position: relative;
+    left: 0px;
+}
+
+.toast-content .message {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+    text-align: left;
+    gap: 5px;
+}
+
+.message .text {
+    font-size: 16px;
+    color: #666666;
+    font-family: arial !important;
+    line-height: 20px;
+}
+
+.message .text.text-1 {
+    font-size: 17px;
+    font-weight: 600;
+    color: #333;
+}
+
+.toast .close {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    cursor: pointer;
+    width: 15px;
+    height: 15px
+}
+
+.toast .close:before,
+.toast .close:after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 18px;
+    width: 1px;
+    height: 20px;
+    background: #000000;
+    transform: rotate(45deg);
+}
+
+.toast .close:after {
+    transform: rotate(-45deg);
+}
+
+.toast .progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+}
+
+.toast .download-progress {
+    height: 2px;
+    top: 8px;
+    display: block;
+    position: relative;
+    left: -1px;
+    background: rgb(25 135 84);
+}
+
+.toast .progress.active {
+    padding: 0 !important;
+}
+
+.toast .progress:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background: rgb(25 135 84);
+}
+
+.toast.success .progress:before {
+    background: rgb(25 135 84);
+}
+
+.progress.active:before {
+    animation: progress 5s linear forwards;
+}
+
+@keyframes progress {
+    100% {
+        right: 100%;
+    }
+}
